@@ -1,5 +1,5 @@
 /**
- * App entry
+ * 应用入口文件
  */
 import React from 'react'
 import ReactDOM from 'react-dom'

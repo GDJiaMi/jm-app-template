@@ -1,13 +1,37 @@
 /**
- * Admin Root Component
+ * 根组件
  */
+import { Title } from '@gdjiami/rc-components'
+import { LocaleProvider } from 'antd'
+import zhCN from 'antd/lib/locale-provider/zh_CN'
+import { Provider } from 'mobx-react'
+import moment from 'moment'
+import 'moment/locale/zh-cn'
 import React from 'react'
 import { hot } from 'react-hot-loader'
+import { Router } from 'react-router-dom'
+import history from '~/history'
 
-export class App extends React.Component<{}, {}> {
+import Routes from './Routes'
+import stores from './stores'
+import './style.css'
+
+export class App extends React.Component {
   public render() {
-    return <div>Admin</div>
+    return (
+      <LocaleProvider locale={zhCN}>
+        <Provider {...stores}>
+          <Router history={history}>
+            <Title.Provider>
+              <Routes />
+            </Title.Provider>
+          </Router>
+        </Provider>
+      </LocaleProvider>
+    )
   }
 }
+
+moment.locale('zh-cn')
 
 export default hot(module)(App)

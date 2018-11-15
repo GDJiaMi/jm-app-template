@@ -1,8 +1,9 @@
 {
   "name": "jm-app-template",
   "version": "0.1.0",
-  "description": "",
+  "description": "template from jm-cli",
   "main": "index.js",
+  "homepage": "https://github.com/carney520/jm-app-template#readme",
   "scripts": {
     "start": "jm start",
     "build": "jm build",
@@ -11,16 +12,29 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "react": "16.4.2",
-    "react-dom": "16.4.2",
+    "@gdjiami/jslib": "^0.1.2",
+    "@gdjiami/jsonrpc": "^2.0.1",
+    "@gdjiami/rc-components": "^0.1.16",
+    "@types/history": "^4.7.2",
+    "antd": "3.8.4",
+    "history": "^4.7.2",
+    "mobx": "^5.1.0",
+    "mobx-react": "^5.2.6",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "react-hot-loader": "4.3.12",
+    "react-loadable": "^5.5.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "tslib": "1.9.3"
   },
   "devDependencies": {
-    "@gdjiami/cli": "^0.1.15",
-    "@types/react": "16.4.13",
-    "@types/react-dom": "16.0.7",
+    "@gdjiami/cli": "*",
+    "@types/react": "^16.7.6",
+    "@types/react-dom": "^16.0.9",
     "@types/react-hot-loader": "^4.1.0",
+    "@types/react-loadable": "^5.4.1",
+    "@types/react-router-dom": "^4.3.1",
     "@types/webpack-env": "^1.13.6",
     "husky": "^1.1.4",
     "prettier": "^1.15.2",
@@ -35,8 +49,30 @@
     }
   },
   "jm": {
-    "proxy": {},
-    "importPlugin": []
+    "proxy": {
+      "${JM_RPC_ROOT}": {
+        "target": "${JM_DEV_SERVER}",
+        "changeOrigin": true,
+        "secure": false
+      }
+    },
+    "importPlugin": [
+      {
+        "libraryName": "antd",
+        "libraryDirectory": "es",
+        "style": "css"
+      },
+      {
+        "libraryName": "antd-mobile",
+        "libraryDirectory": "es",
+        "style": "css"
+      },
+      {
+        "libraryName": "@gdjiami/rc-components",
+        "libraryDirectory": "es",
+        "style": "css"
+      }
+    ]
   },
   "browsers": "last 2 versions",
   "prettier": {
@@ -46,5 +82,12 @@
     "printWidth": 120,
     "trailingComma": "all",
     "arrowParens": "avoid"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carney520/jm-app-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/carney520/jm-app-template/issues"
   }
 }
