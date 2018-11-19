@@ -1,3 +1,4 @@
 # create时使用最新的配置
 tsconfig.json
 .vscode
+.npmignore
