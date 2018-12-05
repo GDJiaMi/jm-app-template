@@ -1,13 +1,12 @@
 /**
  * 应用
  */
-import React from 'react'
-import { hot } from 'react-hot-loader'
+import React, { useState } from 'react'
 
-export class App extends React.Component {
-  public render() {
-    return <div>App</div>
-  }
+export function App() {
+  const [count, setCount] = useState(0)
+  // tslint:disable-next-line
+  return <div onClick={() => setCount(count + 1)}>App {count}</div>
 }
 
-export default hot(module)(App)
+export default App

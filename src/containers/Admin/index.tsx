@@ -8,7 +8,6 @@ import { Provider } from 'mobx-react'
 import moment from 'moment'
 import 'moment/locale/zh-cn'
 import React from 'react'
-import { hot } from 'react-hot-loader'
 import { Router } from 'react-router-dom'
 import history from '~/history'
 
@@ -16,7 +15,7 @@ import Routes from './Routes'
 import stores from './stores'
 import './style.css'
 
-export class App extends React.Component {
+export default class App extends React.Component {
   public render() {
     return (
       <LocaleProvider locale={zhCN}>
@@ -33,5 +32,3 @@ export class App extends React.Component {
 }
 
 moment.locale('zh-cn')
-
-export default hot(module)(App)
